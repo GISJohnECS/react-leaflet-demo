@@ -1,0 +1,113 @@
+{
+    "courses": 
+        [
+            {
+                "course":"Pine Forest Golf Club",
+                "address":"636 Riverside Drive",
+                "city": "Bastrop",
+                "state": "Texas",
+                "zip": "78602",
+                "description":"Pine Forest Golf Club combines breathtaking views, fine service, exquisite course conditions, and affordable pricing. As one of Central Texas' most brilliant jewels, the unique layout lies along the Colorado River as a par 72, 18 hole course.",
+                "toilets":
+                    [
+                        {
+                            "hole": "Clubhouse",
+                            "gender": "Men/Ladies",
+                            "rating": 3,
+                            "AC": "No",
+                            "comments": "Traditional restroom and showers, one for men one for women"
+                        }
+                    ],
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-75.3372987731628, 45.383321536272049]
+                    }
+        },
+        {
+            "course":"ColoVista Golf Club",
+            "address":"100 Country Club Drive", 
+            "city": "Bastrop",
+            "state": "Texas",
+            "zip": "78602-7467",
+            "description":"The 18-hole ColoVista course at the ColoVista Country Club and Resort facility in Bastrop, Texas features 6,966 yards of golf from the longest tees for a par of 72 . The course rating is 73.4 and it has a slope rating of 126. Designed by Les Appelt, the ColoVista golf course opened in 1997.",
+            "toilets":
+                [
+                    {
+                        "hole": "Clubhouse",
+                        "gender": "Men/Ladies",
+                        "rating": 4,
+                        "structure": "Permanent",
+                        "AC": "Yes",
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    },
+                    {
+                        "hole": "14",
+                        "gender": "Men/Ladies",
+                        "rating": 2,
+                        "structure": "Permanent",
+                        "AC": "No",
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    }
+                ],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-75.3372987731628, 45.383321536272049]
+                }
+        },
+        {
+            "course":"Wolfdancer Golf Club",
+            "address":"575 Hyatt Lost Pines Rde", 
+            "city": " Cedar Creek",
+            "state": "Texas",
+            "zip": "78612",
+            "description":"The 18-hole, par 72 history Wolfdancer Golf Club is named in honor of the traditional wolf dance of the Tonkawa Indians who once inhabited this area. The world-renowned golf architect Arthur Hills designed Wolfdancer to take full advantage of the natural lay of the land. Discover native grasses, trees, wildflowers, even a flock of egrets as you move through the rolling prairie, heavily wooded ridgeline and the river valley plain. Each player, no matter how skilled, will find Wolfdancer a challenging yet satisfying experience. Enjoy all the amenities of the world-class golf club, including a 7,205 yard course.",
+            "toilets":
+                [
+                    {
+                        "hole": "Clubhouse",
+                        "gender": "Men/Ladies",
+                        "rating": 5,
+                        "structure": "Permanent",
+                        "AC": 1,
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    },
+                    {
+                        "hole": "1",
+                        "gender": "Men/Ladies",
+                        "rating": 4,
+                        "structure": "Permanent",
+                        "AC": 1,
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    },
+                    {
+                        "hole": "4",
+                        "gender": "Men/Ladies",
+                        "rating": 4,
+                        "structure": "Permanent",
+                        "AC": 1,
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    },
+                    {
+                        "hole": "10",
+                        "gender": "Men/Ladies",
+                        "rating": 4,
+                        "structure": "Permanent",
+                        "AC": 1,
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    },
+                    {
+                        "hole": "14",
+                        "gender": "Men/Ladies",
+                        "rating": 4,
+                        "structure": "Permanent",
+                        "AC": 1,
+                        "comments": "Traditional restroom and showers, one for men one for women"
+                    }
+                ],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-75.3372987731628, 45.383321536272049]
+                }
+    }
+    ]
+}

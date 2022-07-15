@@ -1,56 +1,55 @@
 import React, { useEffect, useState } from "react";
+import { MapContainer, map, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import './App.css';
 import { Icon } from "leaflet";
-import L from "leaflet";
+import  parkData from "./data/skateboard-parks.json";
+import "./App.css";
 
-import icon from "./constants";
+export const icon = new Icon({
+  iconUrl: "/skateboarding.svg",
+  iconSize: [25, 25]
+});
 
 export default function App() {
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const [bbox, setBbox] = useState([]);
-
-    const map = useMap();
-
-    useEffect(() => {
-      map.locate().on("locationfound", function (e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-        const radius = e.accuracy;
-        const circle = L.circle(e.latlng, radius);
-        circle.addTo(map);
-        setBbox(e.bounds.toBBoxString().split(","));
-      });
-    }, [map]);
-
-    return position === null ? null : (
-      <Marker position={position} icon={icon}>
-        <Popup>
-          You are here. <br />
-          Map bbox: <br />
-          <b>Southwest lng</b>: {bbox[0]} <br />
-          <b>Southwest lat</b>: {bbox[1]} <br />
-          <b>Northeast lng</b>: {bbox[2]} <br />
-          <b>Northeast lat</b>: {bbox[3]}
-        </Popup>
-      </Marker>
-    );
-  }
+  const [activePark, setActivePark] = React.useState(null);
 
   return (
-    <MapContainer
-      center={[49.1951, 16.6068]} //I don't think this is needed really with the device location
-      zoom={13}
-      scrollWheelZoom
-      style={{ height: "100vh" }}
-    >
+    <MapContainer center={[45.4, -75.7]} zoom={12}>
       <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
       />
-      <LocationMarker />
+      {parkData.features.map(park => (
+        <Marker
+          key={park.properties.PARK_ID}
+          position={[
+            park.geometry.coordinates[1],
+            park.geometry.coordinates[0]
+          ]}
+          onClick={() => {
+            setActivePark(park);
+          }}
+          icon={icon}
+        />
+      ))}
+
+      {activePark && (
+        <Popup
+          position={[
+            activePark.geometry.coordinates[1],
+            activePark.geometry.coordinates[0]
+          ]}
+          onClose={() => {
+            setActivePark(null);
+          }}
+        >
+          <div>
+            <h2>{activePark.properties.NAME}</h2>
+            <p>{activePark.properties.DESCRIPTIO}</p>
+          </div>
+        </Popup>
+      )}
+      
     </MapContainer>
   );
 }
